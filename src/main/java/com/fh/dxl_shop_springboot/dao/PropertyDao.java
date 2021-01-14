@@ -20,4 +20,7 @@ public interface PropertyDao {
 
     @Insert("insert into dxl_shop_property (name,nameCH,typeId,type,isSKU,isDel,createDate,updateDate,author) value (#{name},#{nameCH},#{typeId},#{type},#{isSKU},#{isDel},#{createDate},#{updateDate},#{author})")
     void saveProperty(ShopProperty shopProperty);
+
+    @Select("select * from dxl_shop_property where id=#{id}")
+    ShopProperty selectPropertyByid(Integer id);
 }

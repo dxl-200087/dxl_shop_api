@@ -40,4 +40,16 @@ public class PropertyController {
         return ReponseData.success(null);
     }
 
+    /*查询回显属性数据
+     * 请求路径 http://localhost:8080/api/property/selectPropertyByid?
+     * 请求方式 get
+     * 请求参数 id
+     * 返回值   {code:200,message:"处理成功",data:{ShopProperty对象}}
+     * */
+    @GetMapping("selectPropertyByid")
+    public ReponseData selectPropertyByid(Integer id){
+        ShopProperty shopProperty=propertyService.selectPropertyByid(id);
+        return ReponseData.success(shopProperty);
+    }
+
 }

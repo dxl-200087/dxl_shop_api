@@ -36,4 +36,10 @@ public class PropertyServiceImpl implements PropertyService {
         shopProperty.setAuthor("dxl");
         propertyDao.saveProperty(shopProperty);
     }
+
+    @Override
+    public ShopProperty selectPropertyByid(Integer id) {
+        ShopProperty shopProperty=propertyDao.selectPropertyByid(id);
+        return shopProperty;
+    }
 }

@@ -9,4 +9,6 @@ public interface PropertyService {
     Map selectProperty(DataTablesVo vo);
 
     void saveProperty(ShopProperty shopProperty);
+
+    ShopProperty selectPropertyByid(Integer id);
 }
