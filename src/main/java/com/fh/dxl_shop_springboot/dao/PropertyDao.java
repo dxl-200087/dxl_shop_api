@@ -5,6 +5,7 @@ import com.fh.dxl_shop_springboot.model.vo.DataTablesVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -23,4 +24,7 @@ public interface PropertyDao {
 
     @Select("select * from dxl_shop_property where id=#{id}")
     ShopProperty selectPropertyByid(Integer id);
+
+    @Update("update dxl_shop_property set name=#{name},nameCH=#{nameCH},typeId=#{typeId},type=#{type},isSKU=#{isSKU},isDel=#{isDel},createDate=#{createDate},updateDate=#{updateDate},author=#{author}")
+    void updateProperty(ShopProperty shopProperty);
 }

@@ -11,4 +11,6 @@ public interface PropertyService {
     void saveProperty(ShopProperty shopProperty);
 
     ShopProperty selectPropertyByid(Integer id);
+
+    void updateProperty(ShopProperty shopProperty);
 }

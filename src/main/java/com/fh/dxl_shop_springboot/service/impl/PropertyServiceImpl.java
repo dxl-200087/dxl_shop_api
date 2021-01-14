@@ -42,4 +42,11 @@ public class PropertyServiceImpl implements PropertyService {
         ShopProperty shopProperty=propertyDao.selectPropertyByid(id);
         return shopProperty;
     }
+
+    @Override
+    public void updateProperty(ShopProperty shopProperty) {
+        shopProperty.setUpdateDate(new Date());
+        shopProperty.setAuthor("dxl");
+        propertyDao.updateProperty(shopProperty);
+    }
 }
