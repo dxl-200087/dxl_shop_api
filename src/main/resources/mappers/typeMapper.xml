@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fh.dxl_shop_springboot.dao.TypeDao">
+
+    <select id="selectType" resultType="com.fh.dxl_shop_springboot.model.po.ShopType">
+        select * from dxl_shop_type
+    </select>
+
+    <insert id="saveType" useGeneratedKeys="true" keyProperty="id" parameterType="com.fh.dxl_shop_springboot.model.po.ShopType">
+        insert into dxl_shop_type (name,pid,createDate,updateDate,whoUser,isDel) value (#{name},#{pid},#{createDate},#{updateDate},#{whoUser},#{isDel})
+    </insert>
+
+</mapper>
