@@ -1,5 +1,6 @@
 package com.fh.dxl_shop_springboot.controller;
 
+import com.fh.dxl_shop_springboot.model.po.ShopProperty;
 import com.fh.dxl_shop_springboot.model.vo.DataTablesVo;
 import com.fh.dxl_shop_springboot.model.vo.ReponseData;
 import com.fh.dxl_shop_springboot.service.PropertyService;
@@ -27,5 +28,16 @@ public class PropertyController {
         return ReponseData.success(map);
     }
 
+    /*新增属性数据
+     * 请求路径 http://localhost:8080/api/property/saveProperty
+     * 请求方式 post
+     * 请求参数 ShopProperty对象
+     * 返回值   {code:200,message:"处理成功",data:null}
+     * */
+    @PostMapping("saveProperty")
+    public ReponseData saveProperty(ShopProperty shopProperty){
+        propertyService.saveProperty(shopProperty);
+        return ReponseData.success(null);
+    }
 
 }

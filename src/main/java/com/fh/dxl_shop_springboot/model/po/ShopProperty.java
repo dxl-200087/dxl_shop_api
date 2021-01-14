@@ -1,5 +1,8 @@
 package com.fh.dxl_shop_springboot.model.po;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class ShopProperty {
@@ -10,7 +13,11 @@ public class ShopProperty {
     private Integer type;//属性的类型
     private Integer isSKU;//是否为sku属性
     private Integer isDel;//逻辑删除
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd",timezone = "GMT+8")
     private Date createDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd",timezone = "GMT+8")
     private Date updateDate;
     private String author;
 

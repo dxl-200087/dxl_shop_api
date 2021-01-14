@@ -7,6 +7,7 @@ import com.fh.dxl_shop_springboot.service.PropertyService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,5 +27,13 @@ public class PropertyServiceImpl implements PropertyService {
         map.put("data",list);
         map.put("count",count);
         return map;
+    }
+
+    @Override
+    public void saveProperty(ShopProperty shopProperty) {
+        shopProperty.setCreateDate(new Date());
+        shopProperty.setIsDel(0);
+        shopProperty.setAuthor("dxl");
+        propertyDao.saveProperty(shopProperty);
     }
 }
