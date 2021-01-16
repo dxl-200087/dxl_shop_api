@@ -29,7 +29,7 @@ public class PropertyController {
     }
 
     /*新增属性数据
-     * 请求路径 http://localhost:8080/api/property/saveProperty
+     * 请求路径 http://localhost:8080/api/property/saveProperty?
      * 请求方式 post
      * 请求参数 ShopProperty对象
      * 返回值   {code:200,message:"处理成功",data:null}
