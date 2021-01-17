@@ -33,4 +33,15 @@ public class ProValServiceImpl implements ProValService {
         proValue.setIsDel(0);
         proValDao.saveProVal(proValue);
     }
+
+    @Override
+    public ProValue selectProValByid(Integer id) {
+        ProValue proValue=proValDao.selectProValByid(id);
+        return proValue;
+    }
+
+    @Override
+    public void updateProVal(ProValue proValue) {
+        proValDao.updateProVal(proValue);
+    }
 }

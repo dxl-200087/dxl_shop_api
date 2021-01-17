@@ -5,6 +5,7 @@ import com.fh.dxl_shop_springboot.model.vo.ProValTableVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -23,4 +24,10 @@ public interface ProValDao {
 
     @Insert("insert into dxl_shop_provalue (name,nameCH,proid,isDel) value (#{name},#{nameCH},#{proid},#{isDel})")
     void saveProVal(ProValue proValue);
+
+    @Select("select * from dxl_shop_provalue where id=#{id}")
+    ProValue selectProValByid(Integer id);
+
+    @Update("update dxl_shop_provalue set name=#{name},nameCH=#{nameCH},proid=#{proid},isDel=#{isDel} where id=#{id}")
+    void updateProVal(ProValue proValue);
 }

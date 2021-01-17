@@ -9,4 +9,8 @@ public interface ProValService {
     Map selectByIdLimit(ProValTableVo vo);
 
     void saveProVal(ProValue proValue);
+
+    ProValue selectProValByid(Integer id);
+
+    void updateProVal(ProValue proValue);
 }
