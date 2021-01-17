@@ -27,6 +27,6 @@ public interface ShopDataDao {
     @Select("select * from dxl_shop_data where id=#{id}")
     ShopData selectShopByid(Integer id);
 
-    @Update("update dxl_shop_data set name=#{name},bandE=#{bandE},imgpath=#{imgpath},bandDesc=#{bandDesc},ord=#{ord},isdel=#{isdel} where id=#{id}")
+    @Update("update dxl_shop_data set name=#{name},bandE=#{bandE},imgpath=#{imgpath},bandDesc=#{bandDesc},ord=#{ord},isdel=#{isdel},updateDate=#{updateDate},author=#{author} where id=#{id}")
     void updateShopData(ShopData shopData);
 }
