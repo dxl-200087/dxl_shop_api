@@ -2,6 +2,7 @@ package com.fh.dxl_shop_springboot.dao;
 
 import com.fh.dxl_shop_springboot.model.po.ProValue;
 import com.fh.dxl_shop_springboot.model.vo.ProValTableVo;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -19,4 +20,7 @@ public interface ProValDao {
             "<if test='craname!=null and craname!=&quot;&quot;'> and name like '%${craname}%'</if>" +
             "limit #{startIndex},#{limit}</script>")
     List<ProValue> selectByproid(ProValTableVo vo);
+
+    @Insert("insert into dxl_shop_provalue (name,nameCH,proid,isDel) value (#{name},#{nameCH},#{proid},#{isDel})")
+    void saveProVal(ProValue proValue);
 }

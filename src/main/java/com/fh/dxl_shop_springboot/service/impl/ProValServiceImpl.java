@@ -27,4 +27,10 @@ public class ProValServiceImpl implements ProValService {
         map.put("data",list);
         return map;
     }
+
+    @Override
+    public void saveProVal(ProValue proValue) {
+        proValue.setIsDel(0);
+        proValDao.saveProVal(proValue);
+    }
 }
