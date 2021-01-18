@@ -2,6 +2,7 @@ package com.fh.dxl_shop_springboot.dao;
 
 import com.fh.dxl_shop_springboot.model.po.ShopProperty;
 import com.fh.dxl_shop_springboot.model.vo.DataTablesVo;
+import com.fh.dxl_shop_springboot.model.vo.PropertyDataVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -12,12 +13,17 @@ import java.util.List;
 @Mapper
 public interface PropertyDao {
 
-    @Select("<script> select Count(*) from dxl_shop_property where 1=1 </script>")
+    @Select("<script> select Count(*) " +
+            "from dxl_shop_property dsp left join dxl_shop_type dxt on dsp.typeId=dxt.id where 1=1 " +
+            "<if test='cratename!=null and cratename!=&quot;&quot;'> and dsp.name like '%${cratename}%'</if>" +
+            "</script>")
     Long selectCount(DataTablesVo vo);
 
-    @Select("<script> select * from dxl_shop_property where 2=2 " +
+    @Select("<script> select dsp.id,dsp.name,dsp.nameCH,dxt.name as typeId,dsp.type,dsp.isSKU,dsp.isDel " +
+            "from dxl_shop_property dsp left join dxl_shop_type dxt on dsp.typeId=dxt.id where 2=2 " +
+            "<if test='cratename!=null and cratename!=&quot;&quot;'> and dsp.name like '%${cratename}%'</if>" +
             "limit #{startIndex},#{limit}</script>")
-    List<ShopProperty> selectProperty(DataTablesVo vo);
+    List<PropertyDataVo> selectProperty(DataTablesVo vo);
 
     @Insert("insert into dxl_shop_property (name,nameCH,typeId,type,isSKU,isDel,createDate,updateDate,author) value (#{name},#{nameCH},#{typeId},#{type},#{isSKU},#{isDel},#{createDate},#{updateDate},#{author})")
     void saveProperty(ShopProperty shopProperty);
