@@ -3,6 +3,7 @@ package com.fh.dxl_shop_springboot.service;
 import com.fh.dxl_shop_springboot.model.po.ShopProperty;
 import com.fh.dxl_shop_springboot.model.vo.DataTablesVo;
 
+import java.util.List;
 import java.util.Map;
 
 public interface PropertyService {
@@ -13,4 +14,6 @@ public interface PropertyService {
     ShopProperty selectPropertyByid(Integer id);
 
     void updateProperty(ShopProperty shopProperty);
+
+    List<ShopProperty> selectProByTypeId(Integer typeId);
 }

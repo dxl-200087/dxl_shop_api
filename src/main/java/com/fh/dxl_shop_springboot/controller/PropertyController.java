@@ -7,6 +7,7 @@ import com.fh.dxl_shop_springboot.service.PropertyService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -63,5 +64,19 @@ public class PropertyController {
         propertyService.updateProperty(shopProperty);
         return ReponseData.success(null);
     }
+
+    /*根据typeId查询对应所有的数据
+     * 请求路径 http://localhost:8080/api/property/selectProByTypeId?
+     * 请求方式 get
+     * 请求参数 typeId
+     * 返回值   {code:200,message:"处理成功",data:ShopProperty对象}
+     * */
+    @GetMapping("selectProByTypeId")
+    public ReponseData selectProByTypeId(Integer typeId){
+        List<ShopProperty> list=propertyService.selectProByTypeId(typeId);
+        return ReponseData.success(list);
+    }
+
+
 
 }

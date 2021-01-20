@@ -33,4 +33,7 @@ public interface PropertyDao {
 
     @Update("update dxl_shop_property set name=#{name},nameCH=#{nameCH},typeId=#{typeId},type=#{type},isSKU=#{isSKU},isDel=#{isDel},createDate=#{createDate},updateDate=#{updateDate},author=#{author} where id=#{id}")
     void updateProperty(ShopProperty shopProperty);
+
+    @Select("select * from dxl_shop_property where typeId=#{typeId}")
+    List<ShopProperty> selectProByTypeId(Integer typeId);
 }

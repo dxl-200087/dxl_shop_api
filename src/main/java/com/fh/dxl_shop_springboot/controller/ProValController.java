@@ -4,7 +4,6 @@ import com.fh.dxl_shop_springboot.model.po.ProValue;
 import com.fh.dxl_shop_springboot.model.vo.ProValTableVo;
 import com.fh.dxl_shop_springboot.model.vo.ReponseData;
 import com.fh.dxl_shop_springboot.service.ProValService;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,7 +20,7 @@ public class ProValController {
      * 请求路径 http://localhost:8080/api/val/selectByIdLimit?
      * 请求方式 get
      * 请求参数 page、limit、proid 必传
-     * 返回值   {code:200,message:"处理成功",data:null}
+     * 返回值   {code:200,message:"处理成功",data:{}}
      * */
     @GetMapping("selectByIdLimit")
     public ReponseData selectByIdLimit(ProValTableVo vo){

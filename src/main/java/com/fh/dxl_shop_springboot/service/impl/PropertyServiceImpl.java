@@ -50,4 +50,10 @@ public class PropertyServiceImpl implements PropertyService {
         shopProperty.setAuthor("dxl");
         propertyDao.updateProperty(shopProperty);
     }
+
+    @Override
+    public List<ShopProperty> selectProByTypeId(Integer typeId) {
+        List<ShopProperty> list=propertyDao.selectProByTypeId(typeId);
+        return list;
+    }
 }
