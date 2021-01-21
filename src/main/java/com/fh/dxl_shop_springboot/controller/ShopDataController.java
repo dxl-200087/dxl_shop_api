@@ -53,8 +53,7 @@ public class ShopDataController {
         //处理新名称  防止中文引起的错误
         String originalFilename = file.getOriginalFilename();
         String newName= UUID.randomUUID().toString()+originalFilename.substring(originalFilename.lastIndexOf("."));
-        newName="images/"+newName;
-        String str = OssFileUtils.upLoadFile(file.getInputStream(), newName);
+        String str = OssFileUtils.upLoadFile(file.getInputStream(), ("images/"+newName));
         return ReponseData.success(str);
     }
 

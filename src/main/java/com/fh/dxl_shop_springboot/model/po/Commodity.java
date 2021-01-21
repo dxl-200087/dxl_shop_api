@@ -1,5 +1,8 @@
 package com.fh.dxl_shop_springboot.model.po;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Commodity {
@@ -7,23 +10,28 @@ public class Commodity {
     private String name;
     private String title;   //标题
     private String imagepath;//主图
-    private Integer priId;  //属性ID
-    private Integer bandId; //品牌id
+    private Integer typeId;  //属性ID
+    private Integer bandId; //品牌idi
     private String productdecs; //商品介绍
     private Double price;  //价格
     private Integer stocks; //库存
     private Integer sortNum;    //排序
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd",timezone = "GMT+8")
     private Date createDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd",timezone = "GMT+8")
     private Date updateDate;
     private String author;
     private Integer isDel;
 
-    public Integer getPriId() {
-        return priId;
+
+    public Integer getTypeId() {
+        return typeId;
     }
 
-    public void setPriId(Integer priId) {
-        this.priId = priId;
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
     }
 
     public String getImagepath() {
