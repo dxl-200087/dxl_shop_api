@@ -1,6 +1,7 @@
 package com.fh.dxl_shop_springboot.service;
 
 import com.fh.dxl_shop_springboot.model.po.Commodity;
+import com.fh.dxl_shop_springboot.model.po.ProValData;
 import com.fh.dxl_shop_springboot.model.vo.CommDataVo;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface CommodityService {
     Map selectCommodity(CommDataVo vo);
 
     void deleteCommodity(Commodity commodity);
+
+    List<ProValData> selectProValDataByPid(Integer proid);
 }

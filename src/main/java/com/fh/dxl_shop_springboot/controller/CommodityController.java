@@ -1,6 +1,7 @@
 package com.fh.dxl_shop_springboot.controller;
 
 import com.fh.dxl_shop_springboot.model.po.Commodity;
+import com.fh.dxl_shop_springboot.model.po.ProValData;
 import com.fh.dxl_shop_springboot.model.vo.CommDataVo;
 import com.fh.dxl_shop_springboot.model.vo.ReponseData;
 import com.fh.dxl_shop_springboot.service.CommodityService;
@@ -94,6 +95,19 @@ public class CommodityController {
         commodityService.deleteCommodity(commodity);
         return ReponseData.success(null);
     }
+
+    /*根据proid查询属性值
+     * 请求路径 http://localhost:8080/api/commodity/selectProValDataByPid?
+     * 请求方式 get
+     * 请求参数 proid
+     * 返回值   {code:200,message:"处理成功",data:[{ProValData对象},{ProValData对象}]}
+     * */
+    @GetMapping("selectProValDataByPid")
+    public ReponseData selectProValDataByPid(Integer proid){
+        List<ProValData> list=commodityService.selectProValDataByPid(proid);
+     return ReponseData.success(list);
+    }
+
 
 
 }

@@ -89,4 +89,10 @@ public class CommodityServiceImpl implements CommodityService {
         commodity.setAuthor("dxl");
         commodityDao.deleteCommodity(commodity);
     }
+
+    @Override
+    public List<ProValData> selectProValDataByPid(Integer proid) {
+        List<ProValData> list=proValDataDao.selectProValDataByPid(proid);
+        return list;
+    }
 }
