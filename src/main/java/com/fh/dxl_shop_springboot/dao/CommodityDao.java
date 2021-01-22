@@ -15,9 +15,9 @@ public interface CommodityDao {
     void saveCommodity(Commodity commodity);
 
     @Select("select * from dxl_shop_commodity where id=#{id}")
-    List<Commodity> selectCommodityByid(Integer id);
+    Commodity selectCommodityByid(Integer id);
 
-    @Update("update dxl_shop_commodity set name=#{name},title=#{title},imagepath=#{imagepath},typeId=#{typeId},bandId=#{bandId},productdecs=#{productdecs},price=#{price},stocks=#{stocks},sortNum=#{sortNum},isDel=#{isDel}")
+    @Update("update dxl_shop_commodity set name=#{name},title=#{title},imagepath=#{imagepath},typeId=#{typeId},bandId=#{bandId},productdecs=#{productdecs},price=#{price},stocks=#{stocks},sortNum=#{sortNum},updateDate=#{updateDate},author=#{author},isDel=#{isDel} where id=#{id}")
     void updateCommodity(Commodity commodity);
 
     @Select("<script>select count(*) from dxl_shop_commodity where 1=1 " +
@@ -31,4 +31,7 @@ public interface CommodityDao {
             "<if test='commBandId!=null and commBandId!=&quot;&quot;'> and bandId = #{commBandId}</if>" +
             "limit #{startIndex},#{limit}</script>")
     List<Commodity> selectCommodity(CommDataVo vo);
+
+    @Update("update dxl_shop_commodity set isDel=#{isDel},updateDate=#{updateDate},author=#{author} where id=#{id}")
+    void deleteCommodity(Commodity commodity);
 }

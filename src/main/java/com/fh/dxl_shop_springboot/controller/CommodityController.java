@@ -24,7 +24,7 @@ public class CommodityController {
     /*查询所有商品数据
      * 请求路径 http://localhost:8080/api/commodity/selectCommodity?
      * 请求方式 post
-     * 请求参数 Commodity
+     * 请求参数 Commodity commBandId
      * 返回值   {code:200,message:"处理成功",data:null}
      * */
     @GetMapping("selectCommodity")
@@ -67,8 +67,8 @@ public class CommodityController {
      * */
     @GetMapping("selectCommodityByid")
     public ReponseData selectCommodityByid(Integer id){
-        List<Commodity> list=commodityService.selectCommodityByid(id);
-        return ReponseData.success(list);
+        Commodity commodity=commodityService.selectCommodityByid(id);
+        return ReponseData.success(commodity);
     }
 
     /*修改商品数据
@@ -80,6 +80,18 @@ public class CommodityController {
     @PostMapping("updateCommodity")
     public ReponseData updateCommodity(Commodity commodity){
         commodityService.updateCommodity(commodity);
+        return ReponseData.success(null);
+    }
+
+    /*修改isDel属性
+     * 请求路径 http://localhost:8080/api/commodity/deleteCommodity?
+     * 请求方式 post
+     * 请求参数 Commodity
+     * 返回值   {code:200,message:"处理成功",data:null}
+     * */
+    @PostMapping("deleteCommodity")
+    public ReponseData deleteCommodity(Commodity commodity){
+        commodityService.deleteCommodity(commodity);
         return ReponseData.success(null);
     }
 

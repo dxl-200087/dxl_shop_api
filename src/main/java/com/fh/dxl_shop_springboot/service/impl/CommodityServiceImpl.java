@@ -60,9 +60,9 @@ public class CommodityServiceImpl implements CommodityService {
     }
 
     @Override
-    public List<Commodity> selectCommodityByid(Integer id) {
-        List<Commodity> list=commodityDao.selectCommodityByid(id);
-        return list;
+    public Commodity selectCommodityByid(Integer id) {
+        Commodity commodity=commodityDao.selectCommodityByid(id);
+        return commodity;
     }
 
     @Override
@@ -81,5 +81,12 @@ public class CommodityServiceImpl implements CommodityService {
         map.put("count",count);
         map.put("data",list);
         return map;
+    }
+
+    @Override
+    public void deleteCommodity(Commodity commodity) {
+        commodity.setUpdateDate(new Date());
+        commodity.setAuthor("dxl");
+        commodityDao.deleteCommodity(commodity);
     }
 }

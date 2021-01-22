@@ -10,9 +10,11 @@ public interface CommodityService {
 
     void saveCommodity(Commodity commodity,String sku,String noSKU);
 
-    List<Commodity> selectCommodityByid(Integer id);
+    Commodity selectCommodityByid(Integer id);
 
     void updateCommodity(Commodity commodity);
 
     Map selectCommodity(CommDataVo vo);
+
+    void deleteCommodity(Commodity commodity);
 }
