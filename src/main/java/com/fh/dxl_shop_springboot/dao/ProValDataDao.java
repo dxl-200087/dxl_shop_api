@@ -1,9 +1,11 @@
 package com.fh.dxl_shop_springboot.dao;
 
 import com.fh.dxl_shop_springboot.model.po.ProValData;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 @Mapper
@@ -16,4 +18,10 @@ public interface ProValDataDao {
 
     @Select("select * from dxl_shop_provaldata where proid=#{proid}")
     List<ProValData> selectProValDataByPid(Integer proid);
+
+    @Select("select * from dxl_shop_provaldata where proid=#{proid}")
+    List<ProValData> selectSkuTable(Integer proid);
+
+    @Delete("delete from dxl_shop_provaldata where proid=#{proid}")
+    void deleteProValByProid(Integer proid);
 }

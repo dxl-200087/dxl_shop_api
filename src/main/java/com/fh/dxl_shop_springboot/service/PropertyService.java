@@ -2,6 +2,7 @@ package com.fh.dxl_shop_springboot.service;
 
 import com.fh.dxl_shop_springboot.model.po.ShopProperty;
 import com.fh.dxl_shop_springboot.model.vo.DataTablesVo;
+import com.fh.dxl_shop_springboot.model.vo.SelectProVal;
 
 import java.util.List;
 import java.util.Map;
@@ -15,5 +16,9 @@ public interface PropertyService {
 
     void updateProperty(ShopProperty shopProperty);
 
-    List<ShopProperty> selectProByTypeId(Integer typeId);
+    Map selectProByTypeId(Integer typeId);
+
+    Map selectSkuTable(Integer proid);
+
+    void updateProValAttrData(String sku, String nosku, Integer proid);
 }

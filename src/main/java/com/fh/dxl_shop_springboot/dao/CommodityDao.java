@@ -29,7 +29,7 @@ public interface CommodityDao {
     @Select("<script>select * from dxl_shop_commodity where 2=2 " +
             "<if test='commName!=null and commName!=&quot;&quot;'> and name like '%${commName}%'</if>" +
             "<if test='commBandId!=null and commBandId!=&quot;&quot;'> and bandId = #{commBandId}</if>" +
-            "limit #{startIndex},#{limit}</script>")
+            "order by id desc limit #{startIndex},#{limit}</script>")
     List<Commodity> selectCommodity(CommDataVo vo);
 
     @Update("update dxl_shop_commodity set isDel=#{isDel},updateDate=#{updateDate},author=#{author} where id=#{id}")

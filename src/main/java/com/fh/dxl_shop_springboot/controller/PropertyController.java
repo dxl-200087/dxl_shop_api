@@ -3,6 +3,7 @@ package com.fh.dxl_shop_springboot.controller;
 import com.fh.dxl_shop_springboot.model.po.ShopProperty;
 import com.fh.dxl_shop_springboot.model.vo.DataTablesVo;
 import com.fh.dxl_shop_springboot.model.vo.ReponseData;
+import com.fh.dxl_shop_springboot.model.vo.SelectProVal;
 import com.fh.dxl_shop_springboot.service.PropertyService;
 import org.springframework.web.bind.annotation.*;
 
@@ -65,7 +66,7 @@ public class PropertyController {
         return ReponseData.success(null);
     }
 
-    /*根据typeId查询对应所有的数据
+    /*回显  根据typeId查询对应所有属性的数据   回显sku和nosku的属性用
      * 请求路径 http://localhost:8080/api/property/selectProByTypeId?
      * 请求方式 get
      * 请求参数 typeId
@@ -73,10 +74,33 @@ public class PropertyController {
      * */
     @GetMapping("selectProByTypeId")
     public ReponseData selectProByTypeId(Integer typeId){
-        List<ShopProperty> list=propertyService.selectProByTypeId(typeId);
-        return ReponseData.success(list);
+        Map map=propertyService.selectProByTypeId(typeId);
+        return ReponseData.success(map);
     }
 
+    /*回显  根据proid查询对应所有的skuTable数据  回显sku的table用
+     * 请求路径 http://localhost:8080/api/property/selectSkuTable?
+     * 请求方式 get
+     * 请求参数 proid
+     * 返回值   {code:200,message:"处理成功",data:ProValData对象}
+     * */
+    @GetMapping("selectSkuTable")
+    public ReponseData selectSkuTable(Integer proid){
+        Map map=propertyService.selectSkuTable(proid);
+        return ReponseData.success(map);
+    }
+
+    /*回显  根据proid查询对应所有的skuTable数据  回显sku的table用
+     * 请求路径 http://localhost:8080/api/property/updateProValAttrData?
+     * 请求方式 post
+     * 请求参数 sku,nosku,proid
+     * 返回值   {code:200,message:"处理成功",data:null}
+     * */
+    @PostMapping("updateProValAttrData")
+    public ReponseData updateProValAttrData(String sku,String nosku,Integer proid){
+        propertyService.updateProValAttrData(sku,nosku,proid);
+        return ReponseData.success(null);
+    }
 
 
 }

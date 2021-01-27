@@ -3,6 +3,7 @@ package com.fh.dxl_shop_springboot.dao;
 import com.fh.dxl_shop_springboot.model.po.ShopProperty;
 import com.fh.dxl_shop_springboot.model.vo.DataTablesVo;
 import com.fh.dxl_shop_springboot.model.vo.PropertyDataVo;
+import com.fh.dxl_shop_springboot.model.vo.SelectProVal;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -35,5 +36,6 @@ public interface PropertyDao {
     void updateProperty(ShopProperty shopProperty);
 
     @Select("select * from dxl_shop_property where typeId=#{typeId}")
-    List<ShopProperty> selectProByTypeId(Integer typeId);
+    List<SelectProVal> selectProByTypeId(Integer typeId);
+
 }

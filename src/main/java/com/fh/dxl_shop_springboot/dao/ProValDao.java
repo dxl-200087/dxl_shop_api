@@ -30,4 +30,8 @@ public interface ProValDao {
 
     @Update("update dxl_shop_provalue set name=#{name},nameCH=#{nameCH},proid=#{proid},isDel=#{isDel} where id=#{id}")
     void updateProVal(ProValue proValue);
+
+
+    @Select("select * from dxl_shop_provalue where proid=#{id}")
+    List<ProValue> selectProValueByid(Integer id);
 }
