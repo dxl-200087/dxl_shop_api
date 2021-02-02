@@ -11,15 +11,15 @@ public class LoginUser {
     private String realName;
     private String password;
     private Integer sex;
-    private String phone;
-    private String email;
-    private String idCard;
+    private String phone;//手机号
+    private String email;//邮箱
+    private String idCard;//身份征
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     private Date birthday;
     private String imgUrl;
-    private Integer eduId;
-    private Integer deptId;
+    private Integer eduId;//学历
+    private Integer deptId;//部门
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd",timezone = "GMT+8")
     private Date createDate;
