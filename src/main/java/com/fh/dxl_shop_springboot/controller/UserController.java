@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
 
@@ -68,6 +70,30 @@ public class UserController {
     @PostMapping("updateUser")
     public ReponseData updateUser(LoginUser loginUser){
         userService.updateUser(loginUser);
+        return ReponseData.success(null);
+    }
+
+    /*赋角色回显
+     * 请求路径 http://localhost:8080/api/user/selectGiveUserPer?
+     * 请求方式 get
+     * 请求参数 userid
+     * 返回值   {code:200,message:"处理成功",data:{perList:{},userper:{}}}
+     * */
+    @GetMapping("selectGiveUserPer")
+    public ReponseData selectGiveUserPer(Integer id){
+        Map map=userService.selectGiveUserPer(id);
+        return ReponseData.success(map);
+    }
+
+    /*赋角色
+     * 请求路径 http://localhost:8080/api/user/addUserPer?
+     * 请求方式 post
+     * 请求参数 uid,list
+     * 返回值   {code:200,message:"处理成功",data:null}
+     * */
+    @PostMapping("addUserPer")
+    public ReponseData addUserPer(Integer uid,String userPerList){
+        userService.addUserPer(uid,userPerList);
         return ReponseData.success(null);
     }
 

@@ -30,4 +30,7 @@ public interface PersonaDao {
 
     @Update("update dxl_user_persona set name=#{name},isDel=#{isDel} where id=#{id}")
     void updatePersona(UserPersona userPersona);
+
+    @Select("select * from dxl_user_persona")
+    List<UserPersona> selectPersonaData();
 }
