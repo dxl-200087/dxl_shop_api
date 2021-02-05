@@ -38,7 +38,7 @@ public class LoginController {
         return ReponseData.success(str);
     }
 
-    /*头像上传
+    /*注册
      * 请求路径 http://localhost:8080/api/loginController/addUser?
      * 请求方式 post
      * 请求参数 LoginUser对象
@@ -51,7 +51,7 @@ public class LoginController {
         return ReponseData.success(map);
     }
 
-    /*头像上传
+    /*登录
      * 请求路径 http://localhost:8080/api/loginController/loginUser?
      * 请求方式 post
      * 请求参数 name password
