@@ -13,4 +13,8 @@ public interface PersonaService {
     UserPersona selectPersonaById(Integer id);
 
     void updatePersona(UserPersona userPersona);
+
+    Map selectPersonaOrMiss(Integer rid);
+
+    void addRoleMenuData(Integer rid, String roleMenuId);
 }

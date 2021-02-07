@@ -63,4 +63,30 @@ public class PersonaController {
         personaService.updatePersona(userPersona);
         return ReponseData.success(null);
     }
+
+    /*赋权限回显
+     * 请求路径 http://localhost:8080/api/persona/selectPersonaOrMiss?
+     * 请求方式 get
+     * 请求参数 rid
+     * 返回值   {code:200,message:"处理成功",data:{roleData:{{},{}},roleMissData:{{},{}}}}
+     * */
+    @GetMapping("selectPersonaOrMiss")
+    public ReponseData selectPersonaOrMiss(Integer rid){
+        Map map=personaService.selectPersonaOrMiss(rid);
+        return ReponseData.success(map);
+    }
+
+    /*赋权限
+     * 请求路径 http://localhost:8080/api/persona/addRoleMenuData?
+     * 请求方式 post
+     * 请求参数 rid  [1,2,3]
+     * 返回值   {code:200,message:"处理成功",data:null}
+     * */
+    @PostMapping("addRoleMenuData")
+    public ReponseData addRoleMenuData(Integer rid, String roleMenuId){
+        personaService.addRoleMenuData(rid,roleMenuId);
+        return ReponseData.success(null);
+    }
+
+
 }
