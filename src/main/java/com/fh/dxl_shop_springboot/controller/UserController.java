@@ -1,6 +1,7 @@
 package com.fh.dxl_shop_springboot.controller;
 
 import com.fh.dxl_shop_springboot.model.po.LoginUser;
+import com.fh.dxl_shop_springboot.model.po.UserRole;
 import com.fh.dxl_shop_springboot.model.vo.ReponseData;
 import com.fh.dxl_shop_springboot.model.vo.UserTableDataVo;
 import com.fh.dxl_shop_springboot.service.UserService;
@@ -12,6 +13,7 @@ import javax.annotation.Resource;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -97,5 +99,16 @@ public class UserController {
         return ReponseData.success(null);
     }
 
+    /*角色权限导航栏管理
+     * 请求路径 http://localhost:8080/api/user/selectUserMeunData?
+     * 请求方式 get
+     * 请求参数 用户的name
+     * 返回值   {code:200,message:"处理成功",data:{{},{},{}}}
+     * */
+    @GetMapping("selectUserMeunData")
+    public ReponseData selectUserMeunData(String name){
+        List<UserRole> list=userService.selectUserMeunData(name);
+        return ReponseData.success(list);
+    }
 
 }

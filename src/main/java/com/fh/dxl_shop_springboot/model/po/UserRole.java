@@ -10,12 +10,21 @@ public class UserRole {
     private Integer pid;//父级id
     private String name;
     private String url;//路径
+    private String icon;
     private Integer type;//类型 0目录  1菜单
     private Integer isDel;//是否删除
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd",timezone = "GMT+8")
     private Date createDate;
     private String author;//操作人
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
     public Integer getId() {
         return id;

@@ -6,6 +6,7 @@ import com.fh.dxl_shop_springboot.dao.UserDao;
 import com.fh.dxl_shop_springboot.model.po.GiveUserPersona;
 import com.fh.dxl_shop_springboot.model.po.LoginUser;
 import com.fh.dxl_shop_springboot.model.po.UserPersona;
+import com.fh.dxl_shop_springboot.model.po.UserRole;
 import com.fh.dxl_shop_springboot.model.vo.UserTableDataVo;
 import com.fh.dxl_shop_springboot.service.UserService;
 import org.springframework.stereotype.Service;
@@ -71,5 +72,13 @@ public class UserServiceImpl implements UserService {
             list.add(giveUserPersona);
         }
         giveUserPersonaDao.addUserPer(list);
+    }
+
+    @Override
+    @Transactional
+    public List<UserRole> selectUserMeunData(String name) {
+        LoginUser loginUser=userDao.selectUser(name);
+        List<UserRole> list=userDao.selectUserMeunData(loginUser.getId());
+        return list;
     }
 }
